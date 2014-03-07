@@ -22,5 +22,9 @@ class Plane
     @flying = true
   end
 
+  def status
+    flying? ? 'flying' : 'landed'
+  end
+
 
 end
