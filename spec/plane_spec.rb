@@ -14,7 +14,6 @@ describe Plane do
   end
   
   it 'can take off' do
-    
     expect(plane).to respond_to(:take_off)
   end
   
