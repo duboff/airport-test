@@ -30,8 +30,10 @@ class Airport
     weather.generate_weather
   end
 
-  def add_plane(plane)
+  # Cheat method for when we want to add the plane when weather is poor
+  def add_plane(plane) 
     planes << plane
+    plane.land
   end
 
   def land(plane)
@@ -43,7 +45,7 @@ class Airport
 
   def take_off(plane)
     raise "Can't take off, Cap. It's stormy" if stormy?
-    raise "This plane is not there" if !planes.include?(plane)
+    raise "This plane is not in the airport" if !planes.include?(plane)
     planes.delete(plane)
     plane.take_off
   end

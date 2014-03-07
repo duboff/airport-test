@@ -66,25 +66,25 @@ describe Airport do
 end
 
 
-describe "The gand finale (last spec)" do
+describe "The grand finale (last spec)" do
   let(:fine_weather) {double :weather, {:stormy? => false } }
   let(:airport) { Airport.new({:weather => fine_weather, :capacity => 6}) }
   let(:six_planes) {Array.new(6, Plane.new)}
   let(:repetitions) {6}
 
   it 'all planes can land' do
-    repetitions.times {airport.land(Plane.new)}
+    six_planes.each {|plane| airport.land(plane)}
     expect(airport.planes.size).to eq 6
   end
 
   it 'all landed planes should have landed status' do 
-    repetitions.times {airport.land(Plane.new)}
+    six_planes.each {|plane| airport.land(plane)}
     expect( airport.planes.map {|plane| plane.status} ).not_to include 'flying'
   end
 
   it 'all planes can take off' do
-    repetitions.times {airport.land(Plane.new)}
-    repetitions.times {airport.planes.each { |plane| airport.take_off(plane) } }
+    six_planes.each {|plane| airport.land(plane)}
+    airport.planes.each {|plane| airport.take_off(plane)}
     expect(airport.planes.size).to eq 0
   end
 

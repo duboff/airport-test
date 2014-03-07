@@ -2,6 +2,7 @@ module WeatherModule
   
   def stormy?
     @stormy ||= rand(2) == 1
+    @stormy
   end
 
   def generate_weather

@@ -1,6 +1,4 @@
 class Plane
-  # attr_accessor :flying?
-  
 
   def initialize
     @flying = true
@@ -11,7 +9,7 @@ class Plane
   end
 
   def landed?
-    !@flying
+    !flying?
   end
 
   def land
@@ -25,6 +23,5 @@ class Plane
   def status
     flying? ? 'flying' : 'landed'
   end
-
 
 end
