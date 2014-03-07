@@ -1,15 +1,11 @@
 module WeatherModule
   
-  def generate_weather
-    @storm ||= rand(2) == 1
-  end
-
   def stormy?
-    @storm
+    @stormy ||= rand(2) == 1
   end
 
-  def de_storm
-    @storm = false
+  def generate_weather
+    @stormy = rand(2) == 1
   end
 
 end

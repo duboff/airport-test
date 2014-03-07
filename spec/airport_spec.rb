@@ -2,10 +2,10 @@ require 'airport'
 
 describe Airport do
   let(:fine_weather) {double :weather, {:stormy? => false } }
-  let(:airport) { Airport.new(fine_weather) }
+  let(:airport) { Airport.new({:weather => fine_weather}) }
   let(:plane) {Plane.new}
   let(:stormy_weather) {double :weather, {:stormy? => true}}
-  let(:stormy_airport) { Airport.new(stormy_weather) }
+  let(:stormy_airport) { Airport.new({:weather => stormy_weather}) }
 
    context 'default behaviour' do
     it 'not have any planes when created' do
@@ -68,7 +68,7 @@ end
 
 describe "The gand finale (last spec)" do
   let(:fine_weather) {double :weather, {:stormy? => false } }
-  let(:airport) { Airport.new(fine_weather) }
+  let(:airport) { Airport.new({:weather => fine_weather, :capacity => 6}) }
   let(:six_planes) {Array.new(6, Plane.new)}
   let(:repetitions) {6}
 

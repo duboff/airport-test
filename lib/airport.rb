@@ -8,14 +8,18 @@ class Airport
   
   attr_writer :capacity
 
-  def initialize(weather, options = {})
+  def initialize(options = {})
     self.capacity = options.fetch(:capacity, capacity)
-    @planes = []
-    @weather = weather
+    self.weather = options.fetch(:weather, weather)
+    @planes ||= []
   end
 
   def capacity
     @capacity ||= DEFAULT_CAPACITY
+  end
+
+  def weather
+    @weather ||= Weather.new
   end
 
   def stormy?
